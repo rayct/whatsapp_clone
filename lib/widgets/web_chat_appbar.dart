@@ -18,7 +18,7 @@ class ChatAppBar extends StatelessWidget {
             children: [
               const CircleAvatar(
                 backgroundImage: NetworkImage(
-                  'https://upload.wikimedia.org/wikipedia/commons/8/85/Elon_Musk_Royal_Society_%28crop1%29.jpg',
+                  'https://pbs.twimg.com/profile_images/1420356697059647492/Nd9MEA37_400x400.jpg',
                 ),
                 radius: 20,
               ),
@@ -26,7 +26,7 @@ class ChatAppBar extends StatelessWidget {
                 width: MediaQuery.of(context).size.width * 0.01,
               ),
               const Text(
-                'Rivaan Ranawat',
+                'Raymond Turner',
                 style: TextStyle(
                   fontSize: 18,
                 ),

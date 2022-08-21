@@ -1,7 +1,14 @@
 const info = [
   {
-    'name': 'Rivaan Ranawat',
+    'name': 'Raymond Turner',
     'message': 'Hey, how are you doing?',
+    'time': '3:53 pm',
+    'profilePic':
+        'https://pbs.twimg.com/profile_images/1420356697059647492/Nd9MEA37_400x400.jpg',
+  },
+  {
+    'name': 'Rivaan Ranawat',
+    'message': 'Hello Bro?',
     'time': '3:53 pm',
     'profilePic':
         'https://upload.wikimedia.org/wikipedia/commons/8/85/Elon_Musk_Royal_Society_%28crop1%29.jpg',
@@ -101,19 +108,9 @@ const messages = [
     "text": "Looks great to me!",
     "time": "11:15 am",
   },
-  
-
   {"isMe": false, "text": "Thanks bro!", "time": "11:17 am"},
-  {
-    "isMe": false,
-    "text": "Did you subscribe?",
-    "time": "11:16 am"
-  },
-  {
-    "isMe": true,
-    "text": "Yes, surely bro!",
-    "time": "11:17 am"
-  },
+  {"isMe": false, "text": "Did you subscribe?", "time": "11:16 am"},
+  {"isMe": true, "text": "Yes, surely bro!", "time": "11:17 am"},
   {
     "isMe": false,
     "text": "Cool, did you like the content?",
