@@ -26,6 +26,9 @@ class MyApp extends StatelessWidget {
       title: 'WhatsApp Clone',
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: backgroundColor,
+        appBarTheme: const AppBarTheme(
+          color: appBarColor,
+        ),
       ),
       onGenerateRoute: (settings) => generateRoute(settings),
       home: const LandingScreen(),

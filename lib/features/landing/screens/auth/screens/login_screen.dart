@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone/colors.dart';
 // import 'package:country_picker/country_picker.dart';
 // import 'package:flutter_riverpod/flutter_riverpod.dart';
 // import 'package:whatsapp_clone/common/utils/colors.dart';
@@ -52,9 +53,9 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Enter your phone number'),
-//         elevation: 0,
-//         backgroundColor: backgroundColor,
-//       ),
+        elevation: 0,
+        backgroundColor: backgroundColor,
+      ),
 //       body: SingleChildScrollView(
 //         child: Padding(
 //           padding: const EdgeInsets.all(18.0),
@@ -92,9 +93,9 @@ class _LoginScreenState extends State<LoginScreen> {
 //                 ),
 //               ),
 //             ],
-//           ),
-//         ),
-      ),
+      // ),
+      // ),
+      // ),
     );
   }
 }
