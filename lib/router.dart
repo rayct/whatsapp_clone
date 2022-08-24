@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/common/widgets/error.dart';
 import 'package:whatsapp_clone/features/landing/screens/auth/screens/login_screen.dart';
 import 'package:whatsapp_clone/features/landing/screens/auth/screens/otp_screen.dart';
+import 'package:whatsapp_clone/features/landing/screens/auth/screens/user_information_screen.dart';
 // import 'package:whatsapp_clone/features/auth/screens/user_information_screen.dart';
 // import 'package:whatsapp_clone/features/group/screens/create_group_screen.dart';
 // import 'package:whatsapp_clone/features/select_contacts/screens/select_contacts_screen.dart';
@@ -26,10 +27,10 @@ Route<dynamic> generateRoute(RouteSettings settings) {
         ),
       );
 
-//     case UserInformationScreen.routeName:
-//       return MaterialPageRoute(
-//         builder: (context) => const UserInformationScreen(),
-//       );
+    case UserInformationScreen.routeName:
+      return MaterialPageRoute(
+        builder: (context) => const UserInformationScreen(),
+      );
 //     case SelectContactsScreen.routeName:
 //       return MaterialPageRoute(
 //         builder: (context) => const SelectContactsScreen(),

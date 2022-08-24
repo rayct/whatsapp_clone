@@ -1,12 +1,9 @@
-// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter/widgets.dart';
-// import 'package:flutter_riverpod/ flutter_riverpod.dart';
-// import 'package:whatsapp_clone/colors.dart';
-// import 'package:whatsapp_clone/common/utils/colors.dart';
-// import 'package:whatsapp_clone/features/auth/controller/auth_controller.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:whatsapp_clone/colors.dart';
+import 'package:whatsapp_clone/features/landing/screens/auth/controller/auth_controller.dart';
 
-class OTPScreen extends StatefulWidget {
+class OTPScreen extends ConsumerWidget {
   static const String routeName = '/otp-screen';
   final String verificationId;
   const OTPScreen({
@@ -14,14 +11,52 @@ class OTPScreen extends StatefulWidget {
     required this.verificationId,
   }) : super(key: key);
 
-  @override
-  State<OTPScreen> createState() => _OTPScreenState();
-}
+  void verifyOTP(WidgetRef ref, BuildContext context, String userOTP) {
+    ref.read(authControllerProvider).verifyOTP(
+          context,
+          verificationId,
+          userOTP,
+        );
+  }
 
-class _OTPScreenState extends State<OTPScreen> {
   @override
-  Widget build(BuildContext context) {
-    // final size = MediaQuery.of(context).size;
-    return Scaffold();
+  Widget build(BuildContext context, WidgetRef ref) {
+    final size = MediaQuery.of(context).size;
+
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Verifying your number'),
+        elevation: 0,
+        backgroundColor: backgroundColor,
+      ),
+      body: Center(
+        child: Column(
+          children: [
+            const SizedBox(height: 20),
+            const Text('We have sent an SMS with a code.'),
+            SizedBox(
+              width: size.width * 0.5,
+              child: TextField(
+                textAlign: TextAlign.center,
+                decoration: const InputDecoration(
+                  hintText: '- - - - - -',
+                  hintStyle: TextStyle(
+                    fontSize: 30,
+                  ),
+                ),
+                keyboardType: TextInputType.number,
+                onChanged: (val) {
+                  if (val.length == 6) {
+                    // print('verifying otp');
+                    verifyOTP(ref, context, val.trim());
+                  }
+                  // print('Function was run');
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

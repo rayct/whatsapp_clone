@@ -1,12 +1,13 @@
 // import 'dart:io';
-// import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
+// import 'package:flutter_riverpod/flutter_riverpod.dart';
 // import 'package:flutter_riverpod/flutter_riverpod.dart';
 // import 'package:whatsapp_clone/common/utils/utils.dart';
 // import 'package:whatsapp_clone/features/auth/controller/auth_controller.dart';
 
-// class UserInformationScreen extends ConsumerStatefulWidget {
-//   static const String routeName = '/user-information';
-//   const UserInformationScreen({Key? key}) : super(key: key);
+class UserInformationScreen extends StatelessWidget {
+  static const String routeName = '/user-information';
+  const UserInformationScreen({Key? key}) : super(key: key);
 
 //   @override
 //   ConsumerState<UserInformationScreen> createState() =>
@@ -40,11 +41,11 @@
 //     }
 //   }
 
-//   @override
-//   Widget build(BuildContext context) {
+  @override
+  Widget build(BuildContext context) {
 //     final size = MediaQuery.of(context).size;
 
-//     return Scaffold(
+    return Scaffold();
 //       body: SafeArea(
 //         child: Center(
 //           child: Column(
@@ -101,5 +102,5 @@
 //         ),
 //       ),
 //     );
-//   }
-// }
+  }
+}
