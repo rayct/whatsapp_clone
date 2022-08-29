@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:whatsapp_clone/colors.dart';
-import 'package:whatsapp_clone/features/landing/screens/auth/controller/auth_controller.dart';
+import 'package:whatsapp_clone/features/auth/controller/auth_controller.dart';
+// import 'package:whatsapp_clone/features/landing/screens/auth/controller/auth_controller.dart';
 
 class OTPScreen extends ConsumerWidget {
   static const String routeName = '/otp-screen';
