@@ -1,16 +1,16 @@
-// import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:intl/intl.dart';
 // import 'package:flutter/material.dart';
 // import 'package:flutter/scheduler.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:whatsapp_clone/models/message.dart';
 // import 'package:flutter_riverpod/flutter_riverpod.dart';
-// import 'package:intl/intl.dart';
-// import 'package:whatsapp_ui/common/enums/message_enum.dart';
-// import 'package:whatsapp_ui/common/providers/message_reply_provider.dart';
-// import 'package:whatsapp_ui/common/widgets/loader.dart';
+// import 'package:whatsapp_clone/common/widgets/loader.dart';
+// import 'package:whatsapp_clone/common/enums/message_enum.dart';
+// import 'package:whatsapp_clone/features/chat/widgets/my_message_card.dart';
+// import 'package:whatsapp_clone/common/providers/message_reply_provider.dart';
+// import 'package:whatsapp_clone/features/chat/controller/chat_controller.dart';
+// import 'package:whatsapp_clone/features/chat/widgets/sender_message_card.dart';
 
-// import 'package:whatsapp_ui/features/chat/controller/chat_controller.dart';
-// import 'package:whatsapp_ui/features/chat/widgets/my_message_card.dart';
-// import 'package:whatsapp_ui/features/chat/widgets/sender_message_card.dart';
-// import 'package:whatsapp_ui/models/message.dart';
 
 // class ChatList extends ConsumerStatefulWidget {
 //   final String recieverUserId;

@@ -1,11 +1,10 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:whatsapp_clone/models/user_model.dart';
 import 'package:flutter_contacts/flutter_contacts.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:whatsapp_clone/common/utils/utils.dart';
 import 'package:whatsapp_clone/features/chat/screens/mobile_chat_screen.dart';
-import 'package:whatsapp_clone/models/user_model.dart';
-// import 'package:whatsapp_clone/features/chat/screens/mobile_chat_screen.dart';
 
 final selectContactsRepositoryProvider = Provider(
   (ref) => SelectContactRepository(
@@ -39,13 +38,14 @@ class SelectContactRepository {
 
       for (var document in userCollection.docs) {
         var userData = UserModel.fromMap(document.data());
+        // print(selectedContact.phones[0].number);
         String selectedPhoneNum = selectedContact.phones[0].number.replaceAll(
           ' ',
           '',
         );
-
         if (selectedPhoneNum == userData.phoneNumber) {
           isFound = true;
+
           Navigator.pushNamed(
             context,
             MobileChatScreen.routeName,

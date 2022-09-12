@@ -24,7 +24,7 @@ class WebLayoutScreen extends StatelessWidget {
                 children: const [
                   WebProfileBar(),
                   WebSearchBar(),
-                  ContactsList(),
+                  // ContactsList(),
                 ],
               ),
             ),
@@ -46,9 +46,9 @@ class WebLayoutScreen extends StatelessWidget {
               children: [
                 const ChatAppBar(),
                 const SizedBox(height: 20),
-                const Expanded(
-                  child: ChatList(),
-                ),
+                // const Expanded(
+                //     child: ChatList(),
+                //     ),
                 Container(
                   height: MediaQuery.of(context).size.height * 0.07,
                   padding: const EdgeInsets.all(10),

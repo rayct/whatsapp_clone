@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/colors.dart';
 import 'package:whatsapp_clone/features/auth/controller/auth_controller.dart';
-import 'package:whatsapp_clone/router.dart';
+// import 'package:whatsapp_clone/router.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:whatsapp_clone/firebase_options.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -39,7 +39,7 @@ class MyApp extends ConsumerWidget {
           color: appBarColor,
         ),
       ),
-      onGenerateRoute: (settings) => generateRoute(settings),
+      // onGenerateRoute: (settings) => generateRoute(settings),
       home: ref.watch(userDataAuthProvider).when(
             data: (user) {
               if (user == null) {

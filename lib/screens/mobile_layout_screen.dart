@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/colors.dart';
+import 'package:whatsapp_clone/features/chat/widgets/contacts_list.dart';
 import 'package:whatsapp_clone/features/select_contacts/screens/select_contacts_screen.dart';
-import 'package:whatsapp_clone/widgets/contacts_list.dart';
+// import 'package:whatsapp_clone/widgets/contacts_list.dart';
 
 class MobileLayoutScreen extends StatelessWidget {
   const MobileLayoutScreen({Key? key}) : super(key: key);
@@ -16,7 +17,7 @@ class MobileLayoutScreen extends StatelessWidget {
           backgroundColor: appBarColor,
           centerTitle: false,
           title: const Text(
-            'WhatsApp',
+            'WhatsAppClone',
             style: TextStyle(
               fontSize: 20,
               color: Colors.grey,

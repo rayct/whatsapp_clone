@@ -2,6 +2,7 @@
 // import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:whatsapp_clone/common/providers/message_reply_provider.dart';
 import 'package:whatsapp_clone/features/auth/controller/auth_controller.dart';
 // import 'package:whatsapp_clone/common/enums/message_enum.dart';
 // import 'package:whatsapp_clone/common/providers/message_reply_provider.dart';
@@ -70,8 +71,8 @@ class ChatController {
 //     MessageEnum messageEnum,
 //     bool isGroupChat,
 //   ) {
-    // final messageReply = ref.read(messageReplyProvider);
-    // ref.read(userDataAuthProvider).whenData(
+  // final messageReply = ref.read(messageReplyProvider);
+  // ref.read(userDataAuthProvider).whenData(
 //           (value) => chatRepository.sendFileMessage(
 //             context: context,
 //             file: file,
@@ -83,7 +84,7 @@ class ChatController {
 //             isGroupChat: isGroupChat,
 //           ),
 //         );
-//     ref.read(messageReplyProvider.state).update((state) => null);
+  // ref.read(messageReplyProvider.state).update((state) => null);
   // }
 
 //   void sendGIFMessage(
@@ -107,7 +108,7 @@ class ChatController {
 //             isGroupChat: isGroupChat,
 //           ),
 //         );
-    // ref.read(messageReplyProvider.state).update((state) => null);
+  // ref.read(messageReplyProvider.state).update((state) => null);
   // }
 
 //   void setChatMessageSeen(
@@ -119,6 +120,6 @@ class ChatController {
 //       context,
 //       recieverUserId,
 //       messageId,
-    // );
-  }
+  // );
 }
+// }
