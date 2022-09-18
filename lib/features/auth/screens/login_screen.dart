@@ -6,15 +6,15 @@ import 'package:whatsapp_clone/common/utils/utils.dart';
 import 'package:whatsapp_clone/common/widgets/custom_button.dart';
 import 'package:whatsapp_clone/features/auth/controller/auth_controller.dart';
 
-class LoginScreen extends ConsumerStatefulWidget {
+class LoginScreen extends StatefulWidget {
   static const routeName = '/login_screen';
   const LoginScreen({Key? key}) : super(key: key);
 
   @override
-  ConsumerState<LoginScreen> createState() => _LoginScreenState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends ConsumerState<LoginScreen> {
+class _LoginScreenState extends State<LoginScreen> {
   final phoneController = TextEditingController();
   Country? country;
 
@@ -34,16 +34,16 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         });
   }
 
-  void sendPhoneNumber() {
-    String phoneNumber = phoneController.text.trim();
-    if (country != null && phoneNumber.isNotEmpty) {
-      ref
-          .read(authControllerProvider)
-          .signInWithPhone(context, '+${country!.phoneCode}$phoneNumber');
-    } else {
-      showSnackBar(context: context, content: 'Fill out all the fields');
-    }
-  }
+  // void sendPhoneNumber() {
+  //   String phoneNumber = phoneController.text.trim();
+  //   if (country != null && phoneNumber.isNotEmpty) {
+  //     ref
+  //         .read(authControllerProvider)
+  //         .signInWithPhone(context, '+${country!.phoneCode}$phoneNumber');
+  //   } else {
+  //     showSnackBar(context: context, content: 'Fill out all the fields');
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -87,7 +87,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
               SizedBox(
                 width: 100,
                 child: CustomButton(
-                  onPressed: sendPhoneNumber,
+                  onPressed: () {},
                   text: 'NEXT',
                 ),
               ),
