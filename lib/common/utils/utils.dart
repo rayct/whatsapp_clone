@@ -1,30 +1,31 @@
 // import 'dart:io';
-// import 'package:flutter/material.dart';
-// import 'package:image_picker/image_picker.dart';
-// // import 'package:enough_giphy_flutter/enough_giphy_flutter.dart';
+import 'dart:io';
+import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+// import 'package:enough_giphy_flutter/enough_giphy_flutter.dart';
 
-// void showSnackBar({required BuildContext context, required String content}) {
-//   ScaffoldMessenger.of(context).showSnackBar(
-//     SnackBar(
-//       content: Text(content),
-//     ),
-//   );
-// }
+void showSnackBar({required BuildContext context, required String content}) {
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      content: Text(content),
+    ),
+  );
+}
 
-// Future<File?> pickImageFromGallery(BuildContext context) async {
-//   File? image;
-//   try {
-//     final pickedImage =
-//         await ImagePicker().pickImage(source: ImageSource.gallery);
+Future<File?> pickImageFromGallery(BuildContext context) async {
+  File? image;
+  try {
+    final pickedImage =
+        await ImagePicker().pickImage(source: ImageSource.gallery);
 
-//     if (pickedImage != null) {
-//       image = File(pickedImage.path);
-//     }
-//   } catch (e) {
-//     showSnackBar(context: context, content: e.toString());
-//   }
-//   return image;
-// }
+    if (pickedImage != null) {
+      image = File(pickedImage.path);
+    }
+  } catch (e) {
+    showSnackBar(context: context, content: e.toString());
+  }
+  return image;
+}
 
 // // Future<File?> pickVideoFromGallery(BuildContext context) async {
 // //   File? video;
