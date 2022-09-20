@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/colors.dart';
+import 'package:whatsapp_clone/common/widgets/error.dart';
 import 'package:whatsapp_clone/router.dart';
 // import 'package:whatsapp_clone/router.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -9,7 +10,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 // import 'package:flutter_riverpod/flutter_riverpod.dart';
 // import 'package:whatsapp_clone/common/widgets/error.dart';
 import 'package:whatsapp_clone/utils/responsive_layout.dart';
-// import 'package:whatsapp_clone/common/widgets/loader.dart';
+import 'package:whatsapp_clone/common/widgets/loader.dart';
 import 'package:whatsapp_clone/screens/web_layout_screen.dart';
 import 'package:whatsapp_clone/screens/mobile_layout_screen.dart';
 import 'package:whatsapp_clone/features/landing/screens/landing_screen.dart';
@@ -27,11 +28,11 @@ void main() async {
   );
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp(
       debugShowCheckedModeBanner: true,
       title: 'WhatsApp Clone',
@@ -39,7 +40,20 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: backgroundColor,
           appBarTheme: const AppBarTheme(color: appBarColor)),
       onGenerateRoute: ((settings) => generateRoute(settings)),
-      home: const LandingScreen(),
+      home: ref.watch(userDataAuthProvider).when(
+            data: (user) {
+              if (user == null) {
+                return const LandingScreen();
+              }
+              return const MobileLayoutScreen();
+            },
+            error: (err, trace) {
+              return ErrorScreen(
+                error: err.toString(),
+              );
+            },
+            loading: () => const Loader(),
+          ),
     );
   }
 }
