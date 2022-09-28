@@ -1,7 +1,10 @@
 // import 'dart:io';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/colors.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:whatsapp_clone/common/enums/message_enum.dart';
 import 'package:whatsapp_clone/features/chat/controller/chat_controller.dart';
 
 class BottomChatField extends ConsumerStatefulWidget {
@@ -35,6 +38,19 @@ class _BottomChatFieldState extends ConsumerState<BottomChatField> {
     }
   }
 
+  void sendFileMessage(
+    File file,
+    MessageEnum messageEnum,
+  ) {
+    ref.read(chatControllerProvider).sendFileMessage(
+          context,
+          file,
+          widget.receiverUserId,
+          messageEnum,
+          widget.isGroupChat,
+        );
+  }
+
   @override
   void dispose() {
     super.dispose();
@@ -47,6 +63,7 @@ class _BottomChatFieldState extends ConsumerState<BottomChatField> {
       children: [
         Expanded(
           child: TextFormField(
+            controller: _messageController,
             onChanged: (val) {
               if (val.isNotEmpty) {
                 setState(() {
