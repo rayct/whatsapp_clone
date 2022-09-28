@@ -205,7 +205,7 @@ class ChatRepository {
           .set(
             message.toMap(),
           );
-      // users -> eciever id  -> sender id -> messages -> message id -> store message
+      // users -> reciever id  -> sender id -> messages -> message id -> store message
       await firestore
           .collection('users')
           .doc(recieverUserId)

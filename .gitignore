@@ -11,6 +11,7 @@
 migrate_working_dir/
 notes.txt
 firstbash.sh
+makemkvnotes.txt
 
 # IntelliJ related
 *.iml

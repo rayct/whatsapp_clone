@@ -1,4 +1,4 @@
-// import 'dart:io';
+
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -27,30 +27,30 @@ Future<File?> pickImageFromGallery(BuildContext context) async {
   return image;
 }
 
-// // Future<File?> pickVideoFromGallery(BuildContext context) async {
-// //   File? video;
-// //   try {
-// //     final pickedVideo =
-// //         await ImagePicker().pickVideo(source: ImageSource.gallery);
+Future<File?> pickVideoFromGallery(BuildContext context) async {
+  File? video;
+  try {
+    final pickedVideo =
+        await ImagePicker().pickVideo(source: ImageSource.gallery);
 
-// //     if (pickedVideo != null) {
-// //       video = File(pickedVideo.path);
-// //     }
-// //   } catch (e) {
-// //     showSnackBar(context: context, content: e.toString());
-// //   }
-// //   return video;
-// // }
+    if (pickedVideo != null) {
+      video = File(pickedVideo.path);
+    }
+  } catch (e) {
+    showSnackBar(context: context, content: e.toString());
+  }
+  return video;
+}
 
-// // Future<GiphyGif?> pickGIF(BuildContext context) async {
-// //   GiphyGif? gif;
-// //   try {
-// //     gif = await Giphy.getGif(
-// //       context: context,
-// //       apiKey: 'pwXu0t7iuNVm8VO5bgND2NzwCpVH9S0F',
-// //     );
-// //   } catch (e) {
-// //     showSnackBar(context: context, content: e.toString());
-// //   }
-// //   return gif;
-// // }
+// Future<GiphyGif?> pickGIF(BuildContext context) async {
+//   GiphyGif? gif;
+//   try {
+//     gif = await Giphy.getGif(
+//       context: context,
+//       apiKey: 'pwXu0t7iuNVm8VO5bgND2NzwCpVH9S0F',
+//     );
+//   } catch (e) {
+//     showSnackBar(context: context, content: e.toString());
+//   }
+//   return gif;
+// }
