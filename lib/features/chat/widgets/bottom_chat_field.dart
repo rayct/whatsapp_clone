@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/colors.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:whatsapp_clone/common/enums/message_enum.dart';
+import 'package:whatsapp_clone/common/utils/utils.dart';
 import 'package:whatsapp_clone/features/chat/controller/chat_controller.dart';
 
 class BottomChatField extends ConsumerStatefulWidget {
@@ -50,6 +51,32 @@ class _BottomChatFieldState extends ConsumerState<BottomChatField> {
           widget.isGroupChat,
         );
   }
+
+  void selectImage() async {
+    File? image = await pickImageFromGallery(context);
+    if (image != null) {
+      sendFileMessage(image, MessageEnum.image);
+    }
+  }
+
+  void selectVideo() async {
+    File? video = await pickVideoFromGallery(context);
+    if (video != null) {
+      sendFileMessage(video, MessageEnum.video);
+    }
+  }
+
+  // void selectGIF() async {
+  //   final gif = await pickGIF(context);
+  //   if (gif != null) {
+  //     ref.read(chatControllerProvider).sendGIFMessage(
+  //           context,
+  //           gif.url,
+  //           widget.recieverUserId,
+  //           widget.isGroupChat,
+  //         );
+  //   }
+  // }
 
   @override
   void dispose() {
@@ -108,14 +135,14 @@ class _BottomChatFieldState extends ConsumerState<BottomChatField> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     IconButton(
-                      onPressed: () {},
+                      onPressed: selectImage,
                       icon: const Icon(
                         Icons.camera_alt,
                         color: Colors.grey,
                       ),
                     ),
                     IconButton(
-                      onPressed: () {},
+                      onPressed: selectVideo,
                       icon: const Icon(
                         Icons.attach_file,
                         color: Colors.grey,
