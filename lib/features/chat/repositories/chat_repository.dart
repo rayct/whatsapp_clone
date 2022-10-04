@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:flutter_contacts/properties/group.dart';
 import 'package:uuid/uuid.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -205,7 +206,7 @@ class ChatRepository {
           .set(
             message.toMap(),
           );
-      // users -> reciever id  -> sender id -> messages -> message id -> store message
+      // users -> eciever id  -> sender id -> messages -> message id -> store message
       await firestore
           .collection('users')
           .doc(recieverUserId)

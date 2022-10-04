@@ -4,32 +4,35 @@ import 'package:whatsapp_clone/common/utils/colors.dart';
 import 'package:whatsapp_clone/common/enums/message_enum.dart';
 import 'package:whatsapp_clone/features/chat/widgets/display_text_image_gif.dart';
 
-class SenderMessageCard extends StatelessWidget {
-  const SenderMessageCard({
+class MyMessageCard extends StatelessWidget {
+  final String message;
+  final String date;
+  final MessageEnum type;
+  final VoidCallback onLeftSwipe;
+  final String repliedText;
+  final String username;
+  final MessageEnum repliedMessageType;
+  final bool isSeen;
+
+  const MyMessageCard({
     Key? key,
     required this.message,
     required this.date,
     required this.type,
-    required this.onRightSwipe,
+    required this.onLeftSwipe,
     required this.repliedText,
     required this.username,
     required this.repliedMessageType,
+    required this.isSeen,
   }) : super(key: key);
-  final String message;
-  final String date;
-  final MessageEnum type;
-  final VoidCallback onRightSwipe;
-  final String repliedText;
-  final String username;
-  final MessageEnum repliedMessageType;
 
   @override
   Widget build(BuildContext context) {
     final isReplying = repliedText.isNotEmpty;
     return SwipeTo(
-      onRightSwipe: onRightSwipe,
+      onLeftSwipe: onLeftSwipe,
       child: Align(
-        alignment: Alignment.centerLeft,
+        alignment: Alignment.centerRight,
         child: ConstrainedBox(
           constraints: BoxConstraints(
             maxWidth: MediaQuery.of(context).size.width - 45,
@@ -38,7 +41,7 @@ class SenderMessageCard extends StatelessWidget {
             elevation: 1,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-            color: senderMessageColor,
+            color: messageColor,
             margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
             child: Stack(
               children: [
@@ -91,14 +94,26 @@ class SenderMessageCard extends StatelessWidget {
                   ),
                 ),
                 Positioned(
-                  bottom: 2,
+                  bottom: 4,
                   right: 10,
-                  child: Text(
-                    date,
-                    style: TextStyle(
-                      fontSize: 13,
-                      color: Colors.grey[600],
-                    ),
+                  child: Row(
+                    children: [
+                      Text(
+                        date,
+                        style: const TextStyle(
+                          fontSize: 13,
+                          color: Colors.white60,
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      Icon(
+                        isSeen ? Icons.done_all : Icons.done,
+                        size: 20,
+                        color: isSeen ? Colors.blue : Colors.white60,
+                      ),
+                    ],
                   ),
                 ),
               ],
@@ -109,63 +124,3 @@ class SenderMessageCard extends StatelessWidget {
     );
   }
 }
-
-// import 'package:flutter/material.dart';
-// import 'package:whatsapp_clone/common/utils/colors.dart';
-
-// class SenderMessageCard extends StatelessWidget {
-//   const SenderMessageCard({
-//     Key? key,
-//     required this.message,
-//     required this.date,
-//   }) : super(key: key);
-//   final String message;
-//   final String date;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Align(
-//       alignment: Alignment.centerLeft,
-//       child: ConstrainedBox(
-//         constraints: BoxConstraints(
-//           maxWidth: MediaQuery.of(context).size.width - 45,
-//         ),
-//         child: Card(
-//           elevation: 1,
-//           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-//           color: senderMessageColor,
-//           margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-//           child: Stack(
-//             children: [
-//               Padding(
-//                 padding: const EdgeInsets.only(
-//                   left: 10,
-//                   right: 30,
-//                   top: 5,
-//                   bottom: 20,
-//                 ),
-//                 child: Text(
-//                   message,
-//                   style: const TextStyle(
-//                     fontSize: 16,
-//                   ),
-//                 ),
-//               ),
-//               Positioned(
-//                 bottom: 2,
-//                 right: 10,
-//                 child: Text(
-//                   date,
-//                   style: TextStyle(
-//                     fontSize: 13,
-//                     color: Colors.grey[600],
-//                   ),
-//                 ),
-//               ),
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }

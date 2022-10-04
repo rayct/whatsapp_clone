@@ -1,16 +1,14 @@
-// import 'dart:io';
 import 'dart:io';
-
-import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_sound/public/flutter_sound_recorder.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:permission_handler/permission_handler.dart';
-import 'package:whatsapp_clone/colors.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:whatsapp_clone/common/enums/message_enum.dart';
-import 'package:whatsapp_clone/common/providers/message_reply_provider.dart';
 import 'package:whatsapp_clone/common/utils/utils.dart';
+import 'package:whatsapp_clone/common/utils/colors.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:whatsapp_clone/common/enums/message_enum.dart';
+import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
+import 'package:flutter_sound/public/flutter_sound_recorder.dart';
+import 'package:whatsapp_clone/common/providers/message_reply_provider.dart';
 import 'package:whatsapp_clone/features/chat/controller/chat_controller.dart';
 import 'package:whatsapp_clone/features/chat/widgets/message_reply_preview.dart';
 
@@ -20,7 +18,8 @@ class BottomChatField extends ConsumerStatefulWidget {
   const BottomChatField({
     Key? key,
     required this.recieverUserId,
-    required this.isGroupChat, required String receiverUserId,
+    required this.isGroupChat,
+    required String receiverUserId,
   }) : super(key: key);
 
   @override
@@ -111,17 +110,17 @@ class _BottomChatFieldState extends ConsumerState<BottomChatField> {
     }
   }
 
-  // void selectGIF() async {
-  //   final gif = await pickGIF(context);
-  //   if (gif != null) {
-  //     ref.read(chatControllerProvider).sendGIFMessage(
-  //           context,
-  //           gif.url,
-  //           widget.recieverUserId,
-  //           widget.isGroupChat,
-  //         );
-  //   }
-  // }
+  void selectGIF() async {
+    final gif = await pickGIF(context);
+    if (gif != null) {
+      ref.read(chatControllerProvider).sendGIFMessage(
+            context,
+            gif.url,
+            widget.recieverUserId,
+            widget.isGroupChat,
+          );
+    }
+  }
 
   void hideEmojiContainer() {
     setState(() {
@@ -197,8 +196,8 @@ class _BottomChatFieldState extends ConsumerState<BottomChatField> {
                             ),
                           ),
                           IconButton(
-                            // onPressed: selectGIF,
-                            onPressed: () {},
+                            onPressed: selectGIF,
+                            // onPressed: () {},
                             icon: const Icon(
                               Icons.gif,
                               color: Colors.grey,

@@ -46,10 +46,10 @@ class MessageReplyPreview extends ConsumerWidget {
             ],
           ),
           const SizedBox(height: 8),
-          // DisplayTextImageGIF(
-          // message: messageReply.message,
-          // type: messageReply.messageEnum,
-          // ),
+          DisplayTextImageGIF(
+            message: messageReply.message,
+            type: messageReply.messageEnum,
+          ),
         ],
       ),
     );
