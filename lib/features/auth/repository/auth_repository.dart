@@ -5,7 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:whatsapp_clone/models/user_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:whatsapp_clone/common/utils/utils.dart';
-import 'package:whatsapp_clone/screens/mobile_layout_screen.dart';
+import 'package:whatsapp_clone/mobile_layout_screen.dart';
 import 'package:whatsapp_clone/features/auth/screens/otp_screen.dart';
 import 'package:whatsapp_clone/features/auth/screens/user_information_screen.dart';
 import 'package:whatsapp_clone/common/repositories/common_firebase_storage_repository.dart';
@@ -71,6 +71,7 @@ class AuthRepository {
         smsCode: userOTP,
       );
       await auth.signInWithCredential(credential);
+      // ignore: use_build_context_synchronously
       Navigator.pushNamedAndRemoveUntil(
         context,
         UserInformationScreen.routeName,
@@ -112,6 +113,7 @@ class AuthRepository {
 
       await firestore.collection('users').doc(uid).set(user.toMap());
 
+      // ignore: use_build_context_synchronously
       Navigator.pushAndRemoveUntil(
         context,
         MaterialPageRoute(

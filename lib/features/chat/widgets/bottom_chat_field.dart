@@ -113,6 +113,7 @@ class _BottomChatFieldState extends ConsumerState<BottomChatField> {
   void selectGIF() async {
     final gif = await pickGIF(context);
     if (gif != null) {
+      // ignore: use_build_context_synchronously
       ref.read(chatControllerProvider).sendGIFMessage(
             context,
             gif.url,
@@ -251,6 +252,7 @@ class _BottomChatFieldState extends ConsumerState<BottomChatField> {
                 backgroundColor: const Color(0xFF128C7E),
                 radius: 25,
                 child: GestureDetector(
+                  onTap: sendTextMessage,
                   child: Icon(
                     isShowSendButton
                         ? Icons.send
@@ -259,7 +261,6 @@ class _BottomChatFieldState extends ConsumerState<BottomChatField> {
                             : Icons.mic,
                     color: Colors.white,
                   ),
-                  onTap: sendTextMessage,
                 ),
               ),
             ),

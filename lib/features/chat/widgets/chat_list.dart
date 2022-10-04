@@ -1,7 +1,6 @@
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-// import 'package:whatsapp_clone/info.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:whatsapp_clone/models/message.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

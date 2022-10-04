@@ -1,8 +1,6 @@
 // import 'dart:io';
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:flutter_contacts/properties/group.dart';
-import 'package:whatsapp_clone/models/group.dart';
 import 'package:whatsapp_clone/models/message.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:whatsapp_clone/models/chat_contact.dart';
